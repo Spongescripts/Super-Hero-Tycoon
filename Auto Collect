@@ -1,25 +1,17 @@
 spawn(function() 
-    local player = game:GetService("Players").LocalPlayer
-    local remoteEvent = game:GetService("ReplicatedStorage"):FindFirstChild("ReplicaRemoteEvents")
+    while getgenv().Pickup do
+        local player = game:GetService("Players").LocalPlayer
+        local remoteEvent = game:GetService("ReplicatedStorage").ReplicaRemoteEvents.Replica_ReplicaSignal
 
-    if remoteEvent and remoteEvent:FindFirstChild("Replica_ReplicaSignal") then
-        while getgenv().Pickup do
-            remoteEvent.Replica_ReplicaSignal:FireServer(1, "collectMoney", player)
-            remoteEvent.Replica_ReplicaSignal:FireServer(2, "collectMoney", player)
-            remoteEvent.Replica_ReplicaSignal:FireServer(3, "collectMoney", player)
-            remoteEvent.Replica_ReplicaSignal:FireServer(4, "collectMoney", player)
-            remoteEvent.Replica_ReplicaSignal:FireServer(5, "collectMoney", player)
-            remoteEvent.Replica_ReplicaSignal:FireServer(6, "collectMoney", player)
-            remoteEvent.Replica_ReplicaSignal:FireServer(7, "collectMoney", player)
-            remoteEvent.Replica_ReplicaSignal:FireServer(8, "collectMoney", player)
-            remoteEvent.Replica_ReplicaSignal:FireServer(9, "collectMoney", player)
-            remoteEvent.Replica_ReplicaSignal:FireServer(10, "collectMoney", player)
-
-            task.wait(0.5) -- Prevents excessive execution
+        if remoteEvent then
+            for i = 1, 10 do
+                remoteEvent:FireServer(i, "collectMoney", player)
+            end
+        else
+            warn("Remote event not found!")
         end
-    else
-        warn("Remote event not found!")
+
+        task.wait(0.5) 
     end
 
-    print("Pickup disabled")
 end)
