@@ -1,0 +1,20 @@
+
+
+spawn(function() 
+    while getgenv().Pickup do
+        local ohNumber1 = 6
+        local ohString2 = "collectMoney"
+        local ohInstance3 = game:GetService("Players").LocalPlayer
+
+        local remoteEvent = game:GetService("ReplicatedStorage"):FindFirstChild("ReplicaRemoteEvents")
+
+        if remoteEvent and remoteEvent:FindFirstChild("Replica_ReplicaSignal") then
+            remoteEvent.Replica_ReplicaSignal:FireServer(ohNumber1, ohString2, ohInstance3)
+        else
+            warn("Remote event not found!")
+        end
+
+        task.wait(0.5) 
+    end
+    print("Pickup disabled")
+end)
