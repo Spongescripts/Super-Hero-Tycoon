@@ -1,0 +1,26 @@
+
+
+local ohNumber1 = getgenv().Outfit -- Fixed variable reference
+local ohString2 = "Outfit"
+local ohString3 = "Outfit"
+
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local NetworkPath = ReplicatedStorage:FindFirstChild("SharedPackages")
+
+if NetworkPath then
+    local NetModule = NetworkPath:FindFirstChild("_Index")
+    
+    if NetModule and NetModule:FindFirstChild("sleitnick_net@0.1.0") then
+        local Net = NetModule["sleitnick_net@0.1.0"]:FindFirstChild("net")
+
+        if Net and Net:FindFirstChild("RF/HandleTycoonGiverPlayerRequest") then
+            Net["RF/HandleTycoonGiverPlayerRequest"]:InvokeServer(ohNumber1, ohString2, ohString3)
+        else
+            warn("HandleTycoonGiverPlayerRequest not found!")
+        end
+    else
+        warn("sleitnick_net@0.1.0 not found!")
+    end
+else
+    warn("SharedPackages not found in ReplicatedStorage!")
+end
