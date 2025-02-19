@@ -1,52 +1,7 @@
 while getgenv().Pickup do
-               local ohNumber1 = 1
-            local ohString2 = "collectMoney"
-            local ohInstance3 = game:GetService("Players").LocalPlayer
-            game:GetService("ReplicatedStorage").ReplicaRemoteEvents.Replica_ReplicaSignal:FireServer(ohNumber1, ohString2, ohInstance3)
-
-            local ohNumber1 = 2
-            local ohString2 = "collectMoney"
-            local ohInstance3 = game:GetService("Players").LocalPlayer
-            game:GetService("ReplicatedStorage").ReplicaRemoteEvents.Replica_ReplicaSignal:FireServer(ohNumber1, ohString2, ohInstance3)
-
-            local ohNumber1 = 3
-            local ohString2 = "collectMoney"
-            local ohInstance3 = game:GetService("Players").LocalPlayer
-            game:GetService("ReplicatedStorage").ReplicaRemoteEvents.Replica_ReplicaSignal:FireServer(ohNumber1, ohString2, ohInstance3)
-
-            local ohNumber1 = 4
-            local ohString2 = "collectMoney"
-            local ohInstance3 = game:GetService("Players").LocalPlayer
-            game:GetService("ReplicatedStorage").ReplicaRemoteEvents.Replica_ReplicaSignal:FireServer(ohNumber1, ohString2, ohInstance3)
-
-            local ohNumber1 = 5
-            local ohString2 = "collectMoney"
-            local ohInstance3 = game:GetService("Players").LocalPlayer
-            game:GetService("ReplicatedStorage").ReplicaRemoteEvents.Replica_ReplicaSignal:FireServer(ohNumber1, ohString2, ohInstance3)
-
-            local ohNumber1 = 6
-            local ohString2 = "collectMoney"
-            local ohInstance3 = game:GetService("Players").LocalPlayer
-            game:GetService("ReplicatedStorage").ReplicaRemoteEvents.Replica_ReplicaSignal:FireServer(ohNumber1, ohString2, ohInstance3)
-
-            local ohNumber1 = 7
-            local ohString2 = "collectMoney"
-            local ohInstance3 = game:GetService("Players").LocalPlayer
-            game:GetService("ReplicatedStorage").ReplicaRemoteEvents.Replica_ReplicaSignal:FireServer(ohNumber1, ohString2, ohInstance3)
-
-            local ohNumber1 = 8
-            local ohString2 = "collectMoney"
-            local ohInstance3 = game:GetService("Players").LocalPlayer
-            game:GetService("ReplicatedStorage").ReplicaRemoteEvents.Replica_ReplicaSignal:FireServer(ohNumber1, ohString2, ohInstance3)
-
-            local ohNumber1 = 9
-            local ohString2 = "collectMoney"
-            local ohInstance3 = game:GetService("Players").LocalPlayer
-            game:GetService("ReplicatedStorage").ReplicaRemoteEvents.Replica_ReplicaSignal:FireServer(ohNumber1, ohString2, ohInstance3)
-
-            local ohNumber1 = 10
-            local ohString2 = "collectMoney"
-            local ohInstance3 = game:GetService("Players").LocalPlayer
-            game:GetService("ReplicatedStorage").ReplicaRemoteEvents.Replica_ReplicaSignal:FireServer(ohNumber1, ohString2, ohInstance3)
-
+    for ohNumber1 = 1, 10 do
+        local ohString2 = "collectMoney"
+        local ohInstance3 = game:GetService("Players").LocalPlayer
+        game:GetService("ReplicatedStorage").ReplicaRemoteEvents.Replica_ReplicaSignal:FireServer(ohNumber1, ohString2, ohInstance3)
+    end
 end
