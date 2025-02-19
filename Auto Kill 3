@@ -1,0 +1,39 @@
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer
+
+-- Initialize the Killaura variable
+
+
+-- Function to teleport to a target player and check their health
+local function teleportToPlayer(targetPlayer)
+    local targetCharacter = targetPlayer.Character
+    if targetCharacter and targetCharacter.PrimaryPart then
+        local character = player.Character
+        
+        -- Keep teleporting until the target player's health is 0
+        local targetHumanoid = targetCharacter:FindFirstChildOfClass("Humanoid")
+        while targetHumanoid and targetHumanoid.Health > 0 do
+            for i = 1, 5 do -- Teleport to the target player 5 times
+                character:SetPrimaryPartCFrame(targetCharacter.PrimaryPart.CFrame)
+                wait(0.1) -- Brief wait to simulate the teleport effect
+                -- Check if Killaura is still active
+                if not getgenv().Killaura then
+                    return
+                end
+            end
+            wait(0.1) -- Brief wait before the next teleport cycle
+        end
+    end
+end
+
+-- Main loop to continuously teleport to players
+while true do
+    if getgenv().Killaura then
+        for _, targetPlayer in pairs(Players:GetPlayers()) do
+            if targetPlayer ~= player then -- Skip the local player
+                teleportToPlayer(targetPlayer)
+            end
+        end
+    end
+    wait(0.5) -- Adjust wait time if necessary to control the frequency of teleporting
+end
