@@ -48,6 +48,5 @@ while getgenv().Pickup do
             local ohString2 = "collectMoney"
             local ohInstance3 = game:GetService("Players").LocalPlayer
             game:GetService("ReplicatedStorage").ReplicaRemoteEvents.Replica_ReplicaSignal:FireServer(ohNumber1, ohString2, ohInstance3)
-else
 
 end
