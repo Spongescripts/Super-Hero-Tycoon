@@ -1,0 +1,30 @@
+local player = game.Players.LocalPlayer
+local UserInputService = game:GetService("UserInputService")
+
+-- Initialize Killaura and AutoClicker in the global environme
+-- Function to find the first tool in the player's inventory
+local function getFirstTool()
+    for _, tool in ipairs(player.Backpack:GetChildren()) do
+        if tool:IsA("Tool") then
+            return tool
+        end
+    end
+    return nil
+end
+
+-- Call getFirstTool and store the result in a variable
+local firstTool = getFirstTool()
+
+-- Check if a tool was found and handle it
+if firstTool then
+    print("Found tool: " .. firstTool.Name)
+    
+    -- Equip the tool if it's found
+    if player.Character and not player.Character:FindFirstChild(firstTool.Name) then
+        firstTool.Parent = player.Character
+    else
+        print("Tool is already equipped.")
+    end
+else
+    print("No tool found in inventory.")
+end
