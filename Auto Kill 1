@@ -1,0 +1,17 @@
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+
+-- Define the target CFrame
+local targetCFrame = CFrame.new(1124.40039, 62.4241142, 1029.67493, -0.925172329, 3.21613385e-08, 0.379547298, -5.05849318e-09, 1, -9.70664686e-08, -0.379547298, -9.17231446e-08, -0.925172329)
+
+-- Store the original position
+local originalCFrame = character.PrimaryPart.CFrame
+
+-- Teleport the character to the target CFrame
+character:SetPrimaryPartCFrame(targetCFrame)
+
+-- Wait for a short duration (optional)
+wait(2)  -- Change this value to adjust how long they stay at the target
+
+-- Teleport the character back to the original position
+character:SetPrimaryPartCFrame(originalCFrame)
