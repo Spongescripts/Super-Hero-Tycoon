@@ -1,0 +1,13 @@
+-- Anti-AFK & Anti-Kick Script
+local VirtualUser = game:GetService("VirtualUser")
+local Players = game:GetService("Players")
+
+local player = Players.LocalPlayer
+
+-- Prevent AFK kick
+player.Idled:Connect(function()
+    VirtualUser:CaptureController()
+    VirtualUser:ClickButton2(Vector2.new())
+end)
+
+print("Anti-AFK & Anti-Kick script loaded successfully.")
