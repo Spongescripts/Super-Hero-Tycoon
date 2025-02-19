@@ -1,0 +1,11 @@
+local player = game.Players.LocalPlayer
+
+-- Function to kill the player
+local function killPlayer()
+    -- Set health to 0 to kill the player
+    if player.Character and player.Character:FindFirstChild("Humanoid") then
+        player.Character.Humanoid.Health = 0
+    end
+end
+
+killPlayer()
