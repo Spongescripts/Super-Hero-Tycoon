@@ -4,9 +4,17 @@ spawn(function()
 
     if remoteEvent and remoteEvent:FindFirstChild("Replica_ReplicaSignal") then
         while getgenv().Pickup do
-            for i = 1, 10 do
-                remoteEvent.Replica_ReplicaSignal:FireServer(i, "collectMoney", player)
-            end
+            remoteEvent.Replica_ReplicaSignal:FireServer(1, "collectMoney", player)
+            remoteEvent.Replica_ReplicaSignal:FireServer(2, "collectMoney", player)
+            remoteEvent.Replica_ReplicaSignal:FireServer(3, "collectMoney", player)
+            remoteEvent.Replica_ReplicaSignal:FireServer(4, "collectMoney", player)
+            remoteEvent.Replica_ReplicaSignal:FireServer(5, "collectMoney", player)
+            remoteEvent.Replica_ReplicaSignal:FireServer(6, "collectMoney", player)
+            remoteEvent.Replica_ReplicaSignal:FireServer(7, "collectMoney", player)
+            remoteEvent.Replica_ReplicaSignal:FireServer(8, "collectMoney", player)
+            remoteEvent.Replica_ReplicaSignal:FireServer(9, "collectMoney", player)
+            remoteEvent.Replica_ReplicaSignal:FireServer(10, "collectMoney", player)
+
             task.wait(0.5) -- Prevents excessive execution
         end
     else
