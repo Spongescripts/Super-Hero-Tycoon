@@ -1,0 +1,31 @@
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local userInputService = game:GetService("UserInputService")
+
+-- Set getgenv() variable to true to enable no-clip
+  -- Change this to true to enable no-clip
+
+-- Enable no-clip
+local function enableNoClip()
+    for _, part in ipairs(character:GetDescendants()) do
+        if part:IsA("BasePart") then
+            part.CanCollide = false
+        end
+    end
+end
+
+-- Disable no-clip
+local function disableNoClip()
+    for _, part in ipairs(character:GetDescendants()) do
+        if part:IsA("BasePart") then
+            part.CanCollide = true
+        end
+    end
+end
+
+-- Check the noclip variable and enable or disable no-clip
+if getgenv().noclip then
+    enableNoClip()
+else
+    disableNoClip()
+end
